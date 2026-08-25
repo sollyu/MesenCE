@@ -66,6 +66,7 @@
 	  <None Remove="Debugger\Documentation\GbaDocumentation.json" />
 	  <None Remove="Debugger\Documentation\GbDocumentation.json" />
 	  <None Remove="Debugger\Documentation\NesDocumentation.json" />
+	  <None Remove="Debugger\Documentation\NesDocumentation_zh-CN.json" />
 	  <None Remove="Debugger\Documentation\PceDocumentation.json" />
 	  <None Remove="Debugger\Documentation\SmsDocumentation.json" />
 	  <None Remove="Debugger\Documentation\SnesDocumentation.json" />
@@ -636,6 +637,7 @@
     <EmbeddedResource Include="Debugger\Documentation\GbDocumentation.json" />
     <EmbeddedResource Include="Debugger\Documentation\SnesDocumentation.json" />
     <EmbeddedResource Include="Debugger\Documentation\NesDocumentation.json" />
+    <EmbeddedResource Include="Debugger\Documentation\NesDocumentation_zh-CN.json" />
     <EmbeddedResource Include="Debugger\HighlightLua.xshd" />
     <EmbeddedResource Include="Debugger\HighlightAssembly.xshd" />
     <EmbeddedResource Include="Debugger\Documentation\LuaDocumentation.json" />

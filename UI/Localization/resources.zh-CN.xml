@@ -2031,6 +2031,10 @@ E
 		<Message ID="LabelOrCommentRequired">必须指定标签或注释。</Message>
 		<Message ID="AddressOutOfRange">地址超出范围。</Message>
 		<Message ID="AddressHasOtherLabel">该地址已有其他标签：{0}</Message>
+		<Message ID="OpCodeTooltipByteCode">机器码</Message>
+		<Message ID="OpCodeTooltipMode">寻址模式</Message>
+		<Message ID="OpCodeTooltipCycleCount">周期数</Message>
+		<Message ID="OpCodeTooltipAffectedFlags">受影响的标志</Message>
 	</Messages>
 	<Enums>
 		<Enum ID="EmulatorShortcut">
@@ -3377,6 +3381,23 @@ E
 			<Value ID="ImAbsX">#i,a,x - 绝对变址立即数</Value>
 			<Value ID="ZInd">(z) - 零页间接寻址</Value>
 			<Value ID="ZeroRel">z,r - 零页相对寻址</Value>
+		</Enum>
+		<Enum ID="CpuFlag">
+			<Value ID="Carry">进位</Value>
+			<Value ID="Decimal">十进制</Value>
+			<Value ID="Interrupt">中断</Value>
+			<Value ID="Negative">负</Value>
+			<Value ID="Overflow">溢出</Value>
+			<Value ID="Zero">零</Value>
+			<Value ID="Memory">内存</Value>
+			<Value ID="Index">索引</Value>
+			<Value ID="Emulation">模拟</Value>
+			<Value ID="HalfCarry">半进位</Value>
+			<Value ID="DirectPage">直接页</Value>
+			<Value ID="Sign">符号</Value>
+			<Value ID="OverflowParity">溢出/奇偶校验</Value>
+			<Value ID="F3">F3</Value>
+			<Value ID="F5">F5</Value>
 		</Enum>
 		<Enum ID="DebuggerShortcut">
 			<Value ID="IncreaseFontSize">增大字体</Value>
