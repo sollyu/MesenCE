@@ -2261,6 +2261,10 @@ E
 		<Message ID="LabelOrCommentRequired">A label or a comment must be specified.</Message>
 		<Message ID="AddressOutOfRange">The address is out of range.</Message>
 		<Message ID="AddressHasOtherLabel">Another label exists for this address: {0}</Message>
+		<Message ID="OpCodeTooltipByteCode">Byte Code</Message>
+		<Message ID="OpCodeTooltipMode">Mode</Message>
+		<Message ID="OpCodeTooltipCycleCount">Cycle Count</Message>
+		<Message ID="OpCodeTooltipAffectedFlags">Affected Flags</Message>
 	</Messages>
 	<Enums>
 		<Enum ID="EmulatorShortcut">
@@ -3658,6 +3662,23 @@ E
 			<Value ID="ImAbsX">#i,a,x - Immediate Absolute Indexed</Value>
 			<Value ID="ZInd">(z) - Zero Page Indirect</Value>
 			<Value ID="ZeroRel">z,r - Zero Page Relative</Value>
+		</Enum>
+		<Enum ID="CpuFlag">
+			<Value ID="Carry">Carry</Value>
+			<Value ID="Decimal">Decimal</Value>
+			<Value ID="Interrupt">Interrupt</Value>
+			<Value ID="Negative">Negative</Value>
+			<Value ID="Overflow">Overflow</Value>
+			<Value ID="Zero">Zero</Value>
+			<Value ID="Memory">Memory</Value>
+			<Value ID="Index">Index</Value>
+			<Value ID="Emulation">Emulation</Value>
+			<Value ID="HalfCarry">Half Carry</Value>
+			<Value ID="DirectPage">Direct Page</Value>
+			<Value ID="Sign">Sign</Value>
+			<Value ID="OverflowParity">Overflow/Parity</Value>
+			<Value ID="F3">F3</Value>
+			<Value ID="F5">F5</Value>
 		</Enum>
 		<Enum ID="DebuggerShortcut">
 			<Value ID="IncreaseFontSize">Increase Font Size</Value>

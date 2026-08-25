@@ -1,6 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Media;
+using Mesen.Config;
 using Mesen.Debugger.Controls;
 using Mesen.Interop;
 using Mesen.Localization;
@@ -60,16 +61,16 @@ public static class OpCodeHelper
 		TooltipEntries items = new();
 		items.AddCustomEntry("OP", panel);
 		if(!string.IsNullOrEmpty(seg.Data.ByteCodeStr)) {
-			items.AddEntry("Byte Code", seg.Data.ByteCodeStr);
+			items.AddEntry(ResourceHelper.GetMessage("OpCodeTooltipByteCode"), seg.Data.ByteCodeStr);
 		}
 		if(doc.OpMode != null) {
-			items.AddEntry("Mode", doc.OpMode[opcode]);
+			items.AddEntry(ResourceHelper.GetMessage("OpCodeTooltipMode"), doc.OpMode[opcode]);
 		}
 		if(doc.OpCycleCount != null) {
-			items.AddEntry("Cycle Count", doc.OpCycleCount[opcode]);
+			items.AddEntry(ResourceHelper.GetMessage("OpCodeTooltipCycleCount"), doc.OpCycleCount[opcode]);
 		}
 		if(desc.Flags != null) {
-			items.AddEntry("Affected Flags", string.Join(", ", desc.Flags));
+			items.AddEntry(ResourceHelper.GetMessage("OpCodeTooltipAffectedFlags"), string.Join(", ", desc.Flags.Select(flag => ResourceHelper.GetEnumText(flag))));
 		}
 
 		return new DynamicTooltip() { Items = items };
@@ -107,7 +108,12 @@ public static class OpCodeHelper
 
 	private static void InitNesDocumentation()
 	{
-		InitDocumentation(CpuType.Nes, ReadDocumentationFile("NesDocumentation.json"));
+		string fileName = ConfigManager.Config.Preferences.Language switch {
+			MesenLanguage.Chinese => "NesDocumentation_zh-CN.json",
+			_                     => "NesDocumentation.json"
+		};
+
+		InitDocumentation(CpuType.Nes, ReadDocumentationFile(fileName));
 	}
 
 	private static void InitSnesDocumentation()
