@@ -41,6 +41,7 @@
 				<DataBoxTextColumn ColumnName="Type" Header="{l:Translate colType}" Binding="{Binding TypeDisplay, DataType={x:Type vm:BreakpointViewModel}}" CanUserResize="True" InitialWidth="65" />
 				<DataBoxTextColumn ColumnName="Address" Header="{l:Translate colAddress}" Binding="{Binding AddressDisplay, DataType={x:Type vm:BreakpointViewModel}}" CanUserResize="True" InitialWidth="65" />
 				<DataBoxTextColumn ColumnName="Condition" Header="{l:Translate colCondition}" Binding="{Binding Breakpoint.Condition, DataType={x:Type vm:BreakpointViewModel}}" CanUserResize="True" InitialWidth="150" />
+				<DataBoxTextColumn ColumnName="Comment" Header="{l:Translate colComment}" Binding="{Binding Breakpoint.Comment, DataType={x:Type vm:BreakpointViewModel}}" CanUserResize="True" InitialWidth="150" />
 			</DataBox.Columns>
 		</DataBox>
 	</Border>

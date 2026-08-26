@@ -48,6 +48,7 @@ namespace Mesen.Debugger.ViewModels
 			{ "Type", (a, b) => string.Compare(a.Breakpoint.ToReadableType(), b.Breakpoint.ToReadableType(), StringComparison.OrdinalIgnoreCase) },
 			{ "Address", (a, b) => string.Compare(a.Breakpoint.GetAddressString(true), b.Breakpoint.GetAddressString(true), StringComparison.OrdinalIgnoreCase) },
 			{ "Condition", (a, b) => string.Compare(a.Breakpoint.Condition, b.Breakpoint.Condition, StringComparison.OrdinalIgnoreCase) },
+			{ "Comment", (a, b) => string.Compare(a.Breakpoint.Comment, b.Breakpoint.Comment, StringComparison.OrdinalIgnoreCase) },
 		};
 
 		public void UpdateBreakpoints()
