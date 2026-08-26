@@ -323,11 +323,11 @@ namespace Mesen.Debugger.ViewModels
 		public void CopySelection()
 		{
 			DebuggerConfig cfg = Config.Debugger;
-			string code = GetSelection(cfg.CopyAddresses, cfg.CopyByteCode, cfg.CopyComments, cfg.CopyBlockHeaders, out _, false);
+			string code = GetSelection(cfg.CopyAddresses, cfg.CopyByteCode, cfg.CopyComments, cfg.CopyBlockHeaders, out _, false, true);
 			ApplicationHelper.GetMainWindow()?.Clipboard?.SetTextAsync(code);
 		}
 
-		public string GetSelection(bool getAddresses, bool getByteCode, bool getComments, bool getHeaders, out int byteCount, bool skipGeneratedJmpSubLabels)
+		public string GetSelection(bool getAddresses, bool getByteCode, bool getComments, bool getHeaders, out int byteCount, bool skipGeneratedJmpSubLabels, bool includeRuntimeInfo)
 		{
 			ICodeDataProvider dp = DataProvider;
 
@@ -383,8 +383,27 @@ namespace Mesen.Debugger.ViewModels
 						string addressText = lineData.GetAddressText(addressDisplayType, addrFormat);
 						line = addressText.PadRight(addrSize) + "  " + line;
 					}
+					if(includeRuntimeInfo && Config.Debugger.ShowMemoryValues && lineData.ValueSize > 0) {
+						line += lineData.GetValueString();
+					}
 					if(getComments && !string.IsNullOrWhiteSpace(lineData.Comment)) {
 						line = line + lineData.Comment;
+					}
+
+					if(includeRuntimeInfo && lineData.HasAddress) {
+						AddressInfo address = lineData.AbsoluteAddress;
+						if(address.Address < 0) {
+							address = new AddressInfo() {
+								Address = lineData.Address,
+								Type = lineData.CpuType.ToMemoryType()
+							};
+						}
+
+						bool isActive = ActiveAddress == lineData.Address;
+						bool hasBreakpoint = BreakpointManager.GetMatchingBreakpoint(address, CpuType, true) != null;
+						line = (isActive ? ">" : " ") + (hasBreakpoint ? "*" : " ") + line;
+					} else if(includeRuntimeInfo) {
+						line = "  " + line;
 					}
 
 					//Skip lines that contain a jump/sub "label" (these aren't 
