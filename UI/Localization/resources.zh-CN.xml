@@ -1131,6 +1131,7 @@
 			<Control ID="colType">类型</Control>
 			<Control ID="colAddress">地址</Control>
 			<Control ID="colCondition">条件</Control>
+			<Control ID="colComment">备注</Control>
 		</Form>
 		<Form ID="CallStackView">
 			<Control ID="colFunction">函数</Control>
@@ -1881,6 +1882,7 @@ DSP 执行的读取/写入不会触发断点，也不会计入访问等。
 			<Control ID="lblAddress">地址：</Control>
 			<Control ID="lblAddressTo">至 $</Control>
 			<Control ID="lblCondition">条件：</Control>
+			<Control ID="lblComment">备注：</Control>
 			<Control ID="chkIgnoreDummyOperations">忽略虚拟读取/写入</Control>
 			<Control ID="chkMark">在事件查看器中标记</Control>
 			<Control ID="chkEnable">中断执行</Control>

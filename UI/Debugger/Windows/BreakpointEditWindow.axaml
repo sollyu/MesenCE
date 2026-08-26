@@ -17,8 +17,8 @@
 	x:Class="Mesen.Debugger.Windows.BreakpointEditWindow"
 	x:DataType="vm:BreakpointEditViewModel"
 	Icon="/Assets/Edit.png"
-	Width="320" Height="180"
-	MinWidth="320" MinHeight="180"
+	Width="320" Height="205"
+	MinWidth="320" MinHeight="205"
 	Title="{Binding WindowTitle}"
 >
 	<Design.DataContext>
@@ -45,7 +45,7 @@
 		<Grid
 			DockPanel.Dock="Right"
 			ColumnDefinitions="Auto,*"
-			RowDefinitions="Auto,Auto,Auto,*"
+			RowDefinitions="Auto,Auto,Auto,*,Auto"
 			Margin="5 0 5 0"
 		>
 			<TextBlock Grid.Column="0" Grid.Row="0" Text="{l:Translate lblBreakpointType}" />
@@ -91,6 +91,9 @@
 				<Image Grid.Column="1" Stretch="None" Source="/Assets/Warning.png" ToolTip.Tip="{l:Translate lblConditionError}" IsVisible="{Binding !IsConditionValid}" />
 				<Image Grid.Column="2" Stretch="None" Source="/Assets/Help.png" ToolTip.Tip="{Binding HelpTooltip}" ToolTip.Placement="Right" ToolTip.ShowDelay="100" />
 			</Grid>
+
+			<TextBlock Grid.Column="0" Grid.Row="4" Text="{l:Translate lblComment}" />
+			<TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Breakpoint.Comment}" />
 		</Grid>
 	</DockPanel>
 </Window>

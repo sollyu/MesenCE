@@ -26,6 +26,7 @@ namespace Mesen.Debugger
 		[ObservableProperty] public partial bool AnyAddress { get; set; } = false;
 		[ObservableProperty] public partial bool IsAssert { get; set; } = false;
 		[ObservableProperty] public partial string Condition { get; set; } = "";
+		[ObservableProperty] public partial string Comment { get; set; } = "";
 
 		public Breakpoint()
 		{
@@ -175,6 +176,7 @@ namespace Mesen.Debugger
 			IgnoreDummyOperations = copy.IgnoreDummyOperations;
 			Enabled = copy.Enabled;
 			Condition = copy.Condition;
+			Comment = copy.Comment;
 			BreakOnExec = copy.BreakOnExec;
 			BreakOnRead = copy.BreakOnRead;
 			BreakOnWrite = copy.BreakOnWrite;
