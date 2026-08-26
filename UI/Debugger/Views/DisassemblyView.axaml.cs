@@ -78,7 +78,7 @@ namespace Mesen.Debugger.Views
 					IsVisible = () => !IsMarginClick,
 					IsEnabled = () => CpuType.SupportsAssembler() && EmuApi.IsPaused(),
 					OnClick = () => {
-						string code = Model.GetSelection(false, false, true, false, out int byteCount, true);
+						string code = Model.GetSelection(false, false, true, false, out int byteCount, true, false);
 						AssemblerWindow.EditCode(CpuType, Model.SelectionStart, code, byteCount);
 					}
 				},
