@@ -1325,6 +1325,19 @@
 			<Control ID="btnToggleSettingsPanel">Toggle settings panel</Control>
 		</Form>
 
+		<Form ID="DebuggerDockFactory">
+			<Control ID="toolDisassembly">Disassembly</Control>
+			<Control ID="toolSourceView">Source View</Control>
+			<Control ID="toolStatus">Status</Control>
+			<Control ID="toolBreakpoints">Breakpoints</Control>
+			<Control ID="toolWatch">Watch</Control>
+			<Control ID="toolCallStack">Call Stack</Control>
+			<Control ID="toolLabels">Labels</Control>
+			<Control ID="toolFunctions">Functions</Control>
+			<Control ID="toolFindResults">Find Results</Control>
+			<Control ID="toolControllers">Controllers</Control>
+		</Form>
+
 		<Form ID="BreakpointListView">
 			<Control ID="colEnabled">E</Control>
 			<Control ID="colMarked">M</Control>

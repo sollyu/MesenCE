@@ -7,6 +7,7 @@ using Dock.Model.Mvvm.Core;
 using Mesen.Debugger.StatusViews;
 using Mesen.Debugger.ViewModels;
 using Mesen.Debugger.ViewModels.DebuggerDock;
+using Mesen.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,19 +31,21 @@ namespace Mesen.Debugger
 
 		public DebuggerDockFactory(DockEntryDefinition? savedRootDef)
 		{
-			DisassemblyTool = new("Disassembly");
+			string viewName = nameof(DebuggerDockFactory);
+
+			DisassemblyTool = new(ResourceHelper.GetViewLabel(viewName, "toolDisassembly"));
 			DisassemblyTool.CanClose = false;
-			SourceViewTool = new("Source View");
+			SourceViewTool = new(ResourceHelper.GetViewLabel(viewName, "toolSourceView"));
 			SourceViewTool.CanClose = false;
 
-			StatusTool = new("Status");
-			BreakpointListTool = new("Breakpoints");
-			WatchListTool = new("Watch");
-			CallStackTool = new("Call Stack");
-			LabelListTool = new("Labels");
-			FunctionListTool = new("Functions");
-			FindResultListTool = new("Find Results");
-			ControllerListTool = new("Controllers");
+			StatusTool = new(ResourceHelper.GetViewLabel(viewName, "toolStatus"));
+			BreakpointListTool = new(ResourceHelper.GetViewLabel(viewName, "toolBreakpoints"));
+			WatchListTool = new(ResourceHelper.GetViewLabel(viewName, "toolWatch"));
+			CallStackTool = new(ResourceHelper.GetViewLabel(viewName, "toolCallStack"));
+			LabelListTool = new(ResourceHelper.GetViewLabel(viewName, "toolLabels"));
+			FunctionListTool = new(ResourceHelper.GetViewLabel(viewName, "toolFunctions"));
+			FindResultListTool = new(ResourceHelper.GetViewLabel(viewName, "toolFindResults"));
+			ControllerListTool = new(ResourceHelper.GetViewLabel(viewName, "toolControllers"));
 
 			_savedRootDef = savedRootDef;
 		}
