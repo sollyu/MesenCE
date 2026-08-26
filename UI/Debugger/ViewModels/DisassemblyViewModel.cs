@@ -324,7 +324,26 @@ namespace Mesen.Debugger.ViewModels
 		{
 			DebuggerConfig cfg = Config.Debugger;
 			string code = GetSelection(cfg.CopyAddresses, cfg.CopyByteCode, cfg.CopyComments, cfg.CopyBlockHeaders, out _, false, true);
+			if(CpuType == CpuType.Nes) {
+				code = GetNesRegisterState() + Environment.NewLine + Environment.NewLine + code;
+			}
 			ApplicationHelper.GetMainWindow()?.Clipboard?.SetTextAsync(code);
+		}
+
+		private string GetNesRegisterState()
+		{
+			NesCpuState cpu = DebugApi.GetCpuState<NesCpuState>(CpuType.Nes);
+			string flags = string.Concat(
+				(cpu.PS & (byte)NesCpuFlags.Negative) != 0 ? "N" : "n",
+				(cpu.PS & (byte)NesCpuFlags.Overflow) != 0 ? "V" : "v",
+				"--",
+				(cpu.PS & (byte)NesCpuFlags.Decimal) != 0 ? "D" : "d",
+				(cpu.PS & (byte)NesCpuFlags.IrqDisable) != 0 ? "I" : "i",
+				(cpu.PS & (byte)NesCpuFlags.Zero) != 0 ? "Z" : "z",
+				(cpu.PS & (byte)NesCpuFlags.Carry) != 0 ? "C" : "c"
+			);
+
+			return $"A: ${cpu.A:X2}  X: ${cpu.X:X2}  Y: ${cpu.Y:X2}  SP: ${cpu.SP:X2}  PC: ${cpu.PC:X4}  P: ${cpu.PS:X2} ({flags})";
 		}
 
 		public string GetSelection(bool getAddresses, bool getByteCode, bool getComments, bool getHeaders, out int byteCount, bool skipGeneratedJmpSubLabels, bool includeRuntimeInfo)
