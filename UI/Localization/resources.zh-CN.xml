@@ -1125,6 +1125,18 @@
 			<Control ID="mnuOptions">设置(_S)</Control>
 			<Control ID="btnToggleSettingsPanel">切换设置面板</Control>
 		</Form>
+		<Form ID="DebuggerDockFactory">
+			<Control ID="toolDisassembly">反汇编</Control>
+			<Control ID="toolSourceView">源代码视图</Control>
+			<Control ID="toolStatus">状态</Control>
+			<Control ID="toolBreakpoints">断点</Control>
+			<Control ID="toolWatch">监视</Control>
+			<Control ID="toolCallStack">调用堆栈</Control>
+			<Control ID="toolLabels">标签</Control>
+			<Control ID="toolFunctions">函数</Control>
+			<Control ID="toolFindResults">查找结果</Control>
+			<Control ID="toolControllers">控制器</Control>
+		</Form>
 		<Form ID="BreakpointListView">
 			<Control ID="colEnabled">E</Control>
 			<Control ID="colMarked">M</Control>
