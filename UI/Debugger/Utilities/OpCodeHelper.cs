@@ -110,7 +110,7 @@ public static class OpCodeHelper
 	{
 		string fileName = ConfigManager.Config.Preferences.Language switch {
 			MesenLanguage.Chinese => "NesDocumentation_zh-CN.json",
-			_                     => "NesDocumentation.json"
+			_ => "NesDocumentation.json"
 		};
 
 		InitDocumentation(CpuType.Nes, ReadDocumentationFile(fileName));
