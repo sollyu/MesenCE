@@ -462,6 +462,9 @@ namespace Mesen.Debugger.Utilities
 		[IconFile("MediaStop")]
 		StopScript,
 
+		[IconFile("Refresh")]
+		ReloadScript,
+
 		[IconFile("LogWindow")]
 		BuiltInScripts,
 
