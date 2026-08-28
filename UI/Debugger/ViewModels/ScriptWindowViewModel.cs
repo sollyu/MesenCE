@@ -247,6 +247,12 @@ namespace Mesen.Debugger.ViewModels
 				},
 				new ContextMenuSeparator(),
 				new ContextMenuAction() {
+					ActionType = ActionType.ReloadScript,
+					IsEnabled = () => ScriptId >= 0,
+					OnClick = RestartScript
+				},
+				new ContextMenuSeparator(),
+				new ContextMenuAction() {
 					ActionType = ActionType.OpenDebugSettings,
 					OnClick = () => DebuggerConfigWindow.Open(DebugConfigWindowTab.ScriptWindow, _wnd)
 				}

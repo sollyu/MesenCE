@@ -3669,6 +3669,7 @@ E
 			<Value ID="BreakOn">运行至扫描线…</Value>
 			<Value ID="RunScript">运行脚本</Value>
 			<Value ID="StopScript">停止脚本</Value>
+			<Value ID="ReloadScript">重新加载脚本</Value>
 			<Value ID="NewScript">新建脚本窗口</Value>
 			<Value ID="BuiltInScripts">内置脚本</Value>
 			<Value ID="Open">打开</Value>
