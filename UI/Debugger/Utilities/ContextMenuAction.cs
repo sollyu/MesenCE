@@ -299,6 +299,9 @@ namespace Mesen.Debugger.Utilities
 		[IconFile("Copy")]
 		Copy,
 
+		[IconFile("Copy")]
+		CopyAddress,
+
 		[IconFile("Paste")]
 		Paste,
 

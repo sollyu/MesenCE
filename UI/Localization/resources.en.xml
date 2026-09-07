@@ -3889,6 +3889,7 @@ E
 		</Enum>
 		<Enum ID="ActionType">
 			<Value ID="Copy">Copy</Value>
+			<Value ID="CopyAddress">Copy Address</Value>
 			<Value ID="Paste">Paste</Value>
 			<Value ID="SelectAll">Select All</Value>
 			<Value ID="Undo">Undo</Value>

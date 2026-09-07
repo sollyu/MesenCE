@@ -3599,6 +3599,7 @@ E
 		</Enum>
 		<Enum ID="ActionType">
 			<Value ID="Copy">复制</Value>
+			<Value ID="CopyAddress">复制地址</Value>
 			<Value ID="Paste">粘贴</Value>
 			<Value ID="SelectAll">全选</Value>
 			<Value ID="Undo">撤销</Value>
