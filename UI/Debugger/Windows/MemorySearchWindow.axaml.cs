@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Input.Platform;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
@@ -35,11 +36,27 @@ namespace Mesen.Debugger.Windows
 
 			_model.Config.LoadWindowSettings(this);
 			_model.AddDisposables(DebugShortcutManager.CreateContextMenu(this.GetControl<DataBox>("SearchResults"), new ContextMenuAction[] {
+				GetCopyAddressAction(),
 				GetViewInDebuggerAction(),
 				GetViewInMemoryAction(),
 				GetAddWatchAction(),
 				GetAddCheatAction()
 			}));
+		}
+
+		private ContextMenuAction GetCopyAddressAction()
+		{
+			return new ContextMenuAction() {
+				ActionType = ActionType.CopyAddress,
+				IsEnabled = () => _model.GetSelectedAddress() != null,
+				OnClick = () => {
+					int? address = _model.GetSelectedAddress();
+					if(address != null) {
+						string format = "X" + _model.MemoryType.ToCpuType().GetAddressSize();
+						ApplicationHelper.GetMainWindow()?.Clipboard?.SetTextAsync("$" + address.Value.ToString(format));
+					}
+				}
+			};
 		}
 
 		protected override void OnClosing(WindowClosingEventArgs e)

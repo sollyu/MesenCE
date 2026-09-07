@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Input.Platform;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
@@ -190,6 +191,7 @@ namespace Mesen.Debugger.Windows
 					OnClick = () => _editor.CopySelection(),
 					Shortcut = () => cfg.Shortcuts.Get(DebuggerShortcut.Copy)
 				},
+				GetCopyAddressAction(),
 				new ContextMenuAction() {
 					ActionType = ActionType.Paste,
 					OnClick = () => _editor.PasteSelection(),
@@ -639,6 +641,15 @@ namespace Mesen.Debugger.Windows
 				() => _model.SelectionStart + Math.Max(0, _model.SelectionLength - 1),
 				() => { }
 			);
+		}
+
+		private ContextMenuAction GetCopyAddressAction()
+		{
+			return new ContextMenuAction() {
+				ActionType = ActionType.CopyAddress,
+				IsEnabled = () => _editor.SelectionStart >= 0,
+				OnClick = () => ApplicationHelper.GetMainWindow()?.Clipboard?.SetTextAsync(GetAddressRange())
+			};
 		}
 
 		private string GetAddressRange()
